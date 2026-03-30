@@ -1,7 +1,6 @@
-import { GoogleGenerativeAI } from '@google/generative-ai'
 import type { FormData, NutritionPlan, GeminiPlan } from './types'
 
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY)
+const GATEWAY = 'https://gemini-gateway-494395912091.asia-south1.run.app'
 
 export async function generatePlan(formData: FormData, plan: NutritionPlan): Promise<GeminiPlan> {
   const { stats, lifestyle, food, snacks } = formData
@@ -62,12 +61,18 @@ Return ONLY a valid JSON object with no markdown, no explanation, exactly this s
 
 Provide exactly 7 days, 5-7 snack swaps, exactly 5 rules tailored to the user's profile, and 3-5 supplements.`
 
-  const model = genAI.getGenerativeModel({
-    model: 'gemini-1.5-flash',
-    generationConfig: { responseMimeType: 'application/json' },
+  const res = await fetch(`${GATEWAY}/v1/models/gemini-1.5-flash:generateContent`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { responseMimeType: 'application/json' },
+    }),
   })
 
-  const result = await model.generateContent(prompt)
-  const text = result.response.text()
+  if (!res.ok) throw new Error(`Gateway error: ${res.status}`)
+
+  const data = await res.json()
+  const text = data.candidates[0].content.parts[0].text
   return JSON.parse(text) as GeminiPlan
 }
