@@ -77,7 +77,7 @@ function getMealPlanDays(formData: FormData, plan: NutritionPlan): { day: string
       meals: [
         bfast1,
         { name: hasMediterranean ? 'Chicken & hummus wrap with tabbouleh' : 'Turkey & avocado wholegrain wrap', cals: Math.round(c * 0.3), p: 35, c: 38, f: 12 },
-        { name: hasMediterranean ? 'Baked salmon with roasted veg & quinoa' : 'Lean beef stir fry with brown rice', cals: Math.round(c * 0.38), p: 40, c: 45, f: 15 },
+        { name: hasMediterranean ? 'Baked salmon with roasted veg & quinoa' : 'Chicken stir fry with brown rice', cals: Math.round(c * 0.38), p: 40, c: 45, f: 15 },
         { name: '🍫 "Treat": Dark chocolate (2 squares) + strawberries', cals: Math.round(c * 0.1), p: 2, c: 18, f: 6, note: 'Secret win — feels indulgent, very low cal!' },
       ]
     },
@@ -104,7 +104,7 @@ function getMealPlanDays(formData: FormData, plan: NutritionPlan): { day: string
       meals: [
         bfast4,
         { name: hasIndian ? 'Chicken tikka salad with raita & flatbread' : 'Leftover batch meal (from Wednesday)', cals: Math.round(c * 0.28), p: 32, c: 36, f: 10, note: '📦 Batch prep win!' },
-        { name: hasIndian ? 'Chicken tikka masala (lighter version) with cauliflower rice' : 'Beef & broccoli with brown rice', cals: Math.round(c * 0.4), p: 44, c: 42, f: 14 },
+        { name: hasIndian ? 'Chicken tikka masala (lighter version) with cauliflower rice' : 'Turkey & broccoli with brown rice', cals: Math.round(c * 0.4), p: 44, c: 42, f: 14 },
         { name: '🍎 Apple slices with 2 tbsp almond butter', cals: Math.round(c * 0.09), p: 4, c: 22, f: 8 },
       ]
     },
@@ -113,7 +113,7 @@ function getMealPlanDays(formData: FormData, plan: NutritionPlan): { day: string
       meals: [
         bfast1,
         { name: 'Tuna niçoise salad (no dressing on the side)', cals: Math.round(c * 0.28), p: 34, c: 24, f: 14 },
-        { name: '🎉 "Treat night": Homemade lean burger with sweet potato fries', cals: Math.round(c * 0.4), p: 38, c: 55, f: 16, note: 'Secretly fits perfectly — enjoy it guilt-free!' },
+        { name: '🎉 "Treat night": Homemade chicken burger with sweet potato fries', cals: Math.round(c * 0.4), p: 38, c: 55, f: 16, note: 'Secretly fits perfectly — enjoy it guilt-free!' },
         { name: '🍦 Low-cal ice cream bar (e.g. Halo Top)', cals: Math.round(c * 0.08), p: 6, c: 18, f: 4, note: 'Secret treat — tastes like a cheat, isn\'t!' },
       ]
     },
